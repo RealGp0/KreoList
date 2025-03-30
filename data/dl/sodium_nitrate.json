@@ -9,18 +9,6 @@
     "password": "Free Copy",
     "records": [
         {
-            "user": "bean",
-            "link": "https://youtu.be/CDy3p63wqvk",
-            "percent": 100,
-            "hz": 240
-        },
-        {
-            "user": "Themeatballking",
-            "link": "https://www.youtube.com/watch?v=rbrPPv25dsU",
-            "percent": 100,
-            "hz": 240
-        },
-        {
             "user": "Poqqers",
             "link": "https://www.youtube.com/watch?v=zkUKeWt4lHs",
             "percent": 100,
@@ -31,30 +19,6 @@
             "link": "https://youtu.be/y_ohBdjvkh4",
             "percent": 100,
             "hz": 240
-        },
-        {
-            "user": "beef",
-            "link": "https://www.youtube.com/watch?v=s-r4zDl2Vvs",
-            "percent": 81,
-            "hz": 240
-        },
-        {
-            "user": "GHHH",
-            "link": "https://drive.google.com/file/d/1FZj0kSjfLAGKdNVu2Muvm9_NREUf6aig/view?usp=sharing",
-            "percent": 100,
-            "hz": 240
-        },
-        {
-            "user": "CurtaGd",
-            "link": "https://youtu.be/irQ27WucXXE",
-            "percent": 100,
-            "hz": 60
-        },
-        {
-            "user": "tod182",
-            "link": "https://youtu.be/V6HxIEvmJEo",
-            "percent": 100,
-            "hz": 60
         }
     ]
 }
