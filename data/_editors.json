@@ -1,7 +1,12 @@
 [
     {
         "role": "owner",
-        "name": "kreo",
+        "name": "Gp0",
+        "link": "https://www.youtube.com/@RealGp0"
+    }
+    {
+        "role": "admin",
+        "name": "nile64",
         "link": "https://www.youtube.com/@nile64"
     }
 ]
