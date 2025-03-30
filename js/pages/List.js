@@ -25,8 +25,9 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="i + 1 <= 150" class="type-label-lg">#{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg">Legacy</p>
+                            <p v-if="i + 1 <= 25" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p v-else-if="i + 1 > 25 && i + 1 <= 50" class="type-label-lg">(E) #{{ i + 1 }}</p>
+                            <p v-else class="type-label-lg">(L) #{{ i + 1 }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i">
@@ -100,13 +101,16 @@ export default {
                     </template>
                     <h3>Submission Requirements</h3>
                     <p>
-                        Achieved the record without using hacks (however, FPS bypass is allowed, up to 360fps)
+                        Achieved the record without using hacks (however, FPS bypass is allowed, up to 360fps, and CBF is also allowed)
                     </p>
                     <p>
                         Achieved the record on the level that is listed on the site - please check the level ID before you submit a record
                     </p>
                     <p>
                         Have either source audio or clicks/taps in the video. Edited audio only does not count
+                    </p>
+                    <p>
+                        For a level to be added to the list, the project had to have been started on or after the day you joined the OMDS.
                     </p>
                     <p>
                         The recording must have a previous attempt and entire death animation shown before the completion, unless the completion is on the first attempt. Everyplay records are exempt from this
@@ -153,32 +157,41 @@ export default {
         },
     },
     async mounted() {
-        // Hide loading spinner
-        this.list = await fetchList();
-        this.editors = await fetchEditors();
-
-        // Error handling
-        if (!this.list) {
-            this.errors = [
-                "Failed to load list. Retry in a few minutes or notify list staff.",
-            ];
-        } else {
-            this.errors.push(
-                ...this.list
-                    .filter(([_, err]) => err)
-                    .map(([_, err]) => {
-                        return `Failed to load level. (${err}.json)`;
-                    })
-            );
-            if (!this.editors) {
-                this.errors.push("Failed to load list editors.");
-            }
-        }
-
-        this.loading = false;
+        store.list = this;
+        await resetList();
     },
     methods: {
         embed,
         score,
     },
 };
+
+export async function resetList() {
+    console.log("resetting");
+    
+    store.list.loading = true;
+
+    // Hide loading spinner
+    store.list.list = await fetchList();
+    store.list.editors = await fetchEditors();
+
+    // Error handling
+    if (!store.list.list) {
+        store.list.errors = [
+            "Failed to load list. Retry in a few minutes or notify list staff.",
+        ];
+    } else {
+        store.list.errors.push(
+            ...store.list.list
+                .filter(([_, err]) => err)
+                .map(([_, err]) => {
+                    return `Failed to load level. (${err}.json)`;
+                })
+        );
+        if (!store.list.editors) {
+            store.list.errors.push("Failed to load list editors.");
+        }
+    }
+
+    store.list.loading = false;
+}

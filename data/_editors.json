@@ -1,27 +1,7 @@
 [
     {
         "role": "owner",
-        "name": "Gp0",
-        "link": "https://www.youtube.com/@RealGp0"
-    },
-    {
-        "role": "admin",
-        "name": "nile64",
+        "name": "kreo",
         "link": "https://www.youtube.com/@nile64"
-    },
-    {
-        "role": "helper",
-        "name": "List Helper",
-        "link": "https://www.youtube.com/@Prometheus_Alt"
-    },
-    {
-        "role": "trial",
-        "name": "Trial List Helper",
-        "link": "https://www.youtube.com/@Prometheus_Alt"
-    },
-    {
-        "role": "dev",
-        "name": "List Coder",
-        "link": "https://www.youtube.com/@Prometheus_Alt"
     }
 ]
